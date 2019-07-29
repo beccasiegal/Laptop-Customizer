@@ -26,14 +26,6 @@ class App extends Component {
     }
   }
 
-  updateFeature(feature, newValue) {
-    const selected = Object.assign({}, this.state.selected);
-    selected[feature] = newValue;
-    this.setState({
-      selected
-    });
-  }
-
   render() {
     const summary = Object.keys(this.state.selected)
           .map(key => <div className="summary__option" key={key}>
@@ -44,6 +36,18 @@ class App extends Component {
                   .format(this.state.selected[key].cost) }
             </div>
         </div>)
+
+updateFeature(feature, newValue) {
+  const selected = Object.assign({}, this.state.selected);
+  selected[feature] = newValue;
+  this.setState({
+    selected
+  });
+  this.setState{{
+    feature
+  }}
+}
+
 
     const total = Object.keys(this.state.selected)
           .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
